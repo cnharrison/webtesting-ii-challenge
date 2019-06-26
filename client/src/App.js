@@ -15,7 +15,7 @@ class App extends Component {
     switch (true) {
       case (type === "strike" && this.state.strikes === 2) ||
         (type === "ball" && this.state.balls === 3):
-        this.setState({ balls: 0, strikes: 0 });
+        this.setState({ balls: 0, strikes: 0, fouls: 0 });
         break;
       case type === "ball":
         this.setState({ balls: this.state.balls + 1 });
@@ -33,7 +33,12 @@ class App extends Component {
         });
         break;
       case type === "hit":
-        this.setState({ hits: this.state.hits + 1, balls: 0, strikes: 0 });
+        this.setState({
+          hits: this.state.hits + 1,
+          balls: 0,
+          strikes: 0,
+          fouls: 0
+        });
         break;
       default:
         return;

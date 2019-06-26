@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
+import Dashboard from "./components/Dashboard";
+import Display from "./components/Display";
 
 class App extends Component {
   state = {
@@ -41,18 +43,13 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Balls + strikes 💯👌😂⚾️</h1>
-        <button onClick={() => this.increment("ball")}>
-          balls: {this.state.balls}{" "}
-        </button>
-        <button onClick={() => this.increment("strike")}>
-          strikes: {this.state.strikes}
-        </button>
-        <button onClick={() => this.increment("foul")}>
-          fouls: {this.state.fouls}
-        </button>
-        <button onClick={() => this.increment("hit")}>
-          hits: {this.state.hits}
-        </button>
+        <Dashboard increment={this.increment} />
+        <Display
+          balls={this.state.balls}
+          strikes={this.state.strikes}
+          fouls={this.state.fouls}
+          hits={this.state.hits}
+        />
       </div>
     );
   }
